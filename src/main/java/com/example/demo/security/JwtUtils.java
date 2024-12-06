@@ -15,15 +15,15 @@ import java.util.stream.Collectors;
 @Service
 public class JwtUtils {
 
-    public String generateToken(String email) {
+    public String generateToken(String pseudo) {
         Map<String, Object> tokenData = new HashMap<>();
         return Jwts.builder()
-                .setSubject(email)
+                .setSubject(pseudo)
                 .signWith(SignatureAlgorithm.HS256, "pizza")
                 .compact();
     }
 
-    public String exctractEmailFromJwt(String jwt){
+    public String exctractpseudoFromJwt(String jwt){
 
         return Jwts.parser()
                 .setSigningKey("pizza")
